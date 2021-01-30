@@ -109,6 +109,7 @@ view: order_items {
     ]
   }
 
+  # ----- excercise
 
   dimension: shipping_days {
       type: number
@@ -129,5 +130,14 @@ view: order_items {
   measure: average_sales {
       type: average
       sql: ${sale_price} ;;
+  }
+
+  measure: total_sales_email_users {
+      type: sum
+      sql: ${sale_price} ;;
+      filters: {
+          field: users.is_email_source
+          value: "yes"
+      }
   }
 }
