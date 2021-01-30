@@ -108,4 +108,26 @@ view: order_items {
       inventory_items.product_name
     ]
   }
+
+
+  dimension: shipping_days {
+      type: number
+      sql: DATEDIFF(day, ${shipped_date},${delivered_date})
+  }
+
+  measure: order_count {
+      description: 'A count of unique orders'
+      type: count_distinct
+      sql: ${order_id} ;;
+  }
+
+  measure: total_sales {
+      type: sum
+      sql: ${sale_price} ;;
+  }
+
+  measure: average_sales {
+      type: average
+      sql: ${sale_price} ;;
+  }
 }
