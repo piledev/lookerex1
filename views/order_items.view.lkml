@@ -109,15 +109,15 @@ view: order_items {
     ]
   }
 
-  # ----- excercise
+  # ----- excercise -----
 
   dimension: shipping_days {
       type: number
-      sql: DATEDIFF(day, ${shipped_date},${delivered_date})
+      sql: DATEDIFF(day, ${shipped_date}, ${delivered_date}) ;;
   }
 
   measure: order_count {
-      description: 'A count of unique orders'
+      description: "A count of unique orders"
       type: count_distinct
       sql: ${order_id} ;;
   }
@@ -139,5 +139,17 @@ view: order_items {
           field: users.is_email_source
           value: "yes"
       }
+  }
+
+  measure: percentage_sales_email_source {
+    type: number
+    value_format_name: percent_2
+    sql: 1.0+${total_sales_email_users}/NULLIF(${total_sales},0) ;;
+  }
+
+  measure: average_spend_per_user {
+    type: number
+    value_format_name: usd
+    sql: 1.0 * ${total_sales} / NULLIF(${users.count},0) ;;
   }
 }

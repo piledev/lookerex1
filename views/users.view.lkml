@@ -90,11 +90,16 @@ view: users {
   }
 
 
-
+ # ----- exercise --------
 
   dimension: city_state {
       type: string
       sql: ${city} || ',' || ${state} ;;
+  }
+
+  dimension: is_email_source {
+    type: yesno
+    sql:  ${traffic_source} = 'Email' ;;
   }
 
   dimension: age_tier {
@@ -105,4 +110,3 @@ view: users {
   }
 
 }
-
