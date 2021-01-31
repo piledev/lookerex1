@@ -124,6 +124,7 @@ view: order_items {
 
   measure: total_sales {
       type: sum
+      value_format_name: usd
       sql: ${sale_price} ;;
   }
 
