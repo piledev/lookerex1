@@ -73,9 +73,9 @@ explore: order_items {
   # ----- exercise -----
   sql_always_where: ${order_items.returned_date} IS NULL ;;
   sql_always_having: ${order_items.total_sales} > 200 ;;
-  sql_always_where: ${order_items.status} = 'complete' ;;
-  sql_always_having: ${order_items.count} > 5000 ;;
-  conditinaly_filter: {
+  # sql_always_where: ${order_items.status} = 'complete' ;;
+  # sql_always_having: ${order_items.count} > 5000 ;;
+  conditionally_filter: {
       filters: {
         field: users.created_date
         value: "last 90 days"
@@ -97,7 +97,7 @@ explore: users {
     # ----- exercise -----
     join: order_items {
         type: left_outer
-        sql_on: ${user.id} = ${order_items.user_id} ;;
+        sql_on: ${users.id} = ${order_items.user_id} ;;
         relationship: one_to_many
     }
     always_filter: {
@@ -108,4 +108,3 @@ explore: users {
     }
     persist_with: default
 }
-
