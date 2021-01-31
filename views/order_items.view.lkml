@@ -152,4 +152,5 @@ view: order_items {
     value_format_name: usd
     sql: 1.0 * ${total_sales} / NULLIF(${users.count},0) ;;
   }
+
 }
