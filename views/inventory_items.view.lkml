@@ -18,6 +18,7 @@ view: inventory_items {
     type: time
     timeframes: [
       raw,
+
       time,
       date,
       week,
