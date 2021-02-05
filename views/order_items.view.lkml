@@ -170,7 +170,7 @@ view: order_items {
     sql: ${sale_price} ;;
     filters: {
       field: users.state
-      value: "california"
+      value: "California"
     }
   }
 
