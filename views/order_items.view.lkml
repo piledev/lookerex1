@@ -154,4 +154,24 @@ view: order_items {
     sql: 1.0 * ${total_sales} / NULLIF(${users.count},0) ;;
   }
 
+  measure: total_sales_Arizona {
+    type: sum
+    value_format_name: usd
+    sql: ${sale_price} ;;
+    filters: {
+      field: users.state
+      value: "Arizona"
+    }
+  }
+
+  measure: total_sales_california {
+    type: sum
+    value_format_name: usd
+    sql: ${sale_price} ;;
+    filters: {
+      field: users.state
+      value: "california"
+    }
+  }
+
 }
