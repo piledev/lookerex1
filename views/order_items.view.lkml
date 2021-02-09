@@ -154,6 +154,66 @@ view: order_items {
     sql: 1.0 * ${total_sales} / NULLIF(${users.count},0) ;;
   }
 
+  measure: total_sales_california {
+    type: sum
+    value_format_name: usd
+    sql: ${sale_price} ;;
+    filters: {
+      field: users.state
+      value: "California"
+    }
+  }
+
+  measure: total_sales_Texas {
+    type: sum
+    value_format_name: usd
+    sql: ${sale_price} ;;
+    filters: {
+      field: users.state
+      value: "Texas"
+    }
+  }
+
+  measure: total_sales_New_York {
+    type: sum
+    value_format_name: usd
+    sql: ${sale_price} ;;
+    filters: {
+      field: users.state
+      value: "New York"
+    }
+  }
+
+  measure: total_sales_Illinois {
+    type: sum
+    value_format_name: usd
+    sql: ${sale_price} ;;
+    filters: {
+      field: users.state
+      value: "Illinois"
+    }
+  }
+
+  measure: total_sales_Florida {
+    type: sum
+    value_format_name: usd
+    sql: ${sale_price} ;;
+    filters: {
+      field: users.state
+      value: "Florida"
+    }
+  }
+
+  measure: total_sales_Ohio {
+    type: sum
+    value_format_name: usd
+    sql: ${sale_price} ;;
+    filters: {
+      field: users.state
+      value: "Ohio"
+    }
+  }
+
   measure: total_sales_Arizona {
     type: sum
     value_format_name: usd
@@ -164,14 +224,6 @@ view: order_items {
     }
   }
 
-  measure: total_sales_california {
-    type: sum
-    value_format_name: usd
-    sql: ${sale_price} ;;
-    filters: {
-      field: users.state
-      value: "California"
-    }
-  }
+
 
 }
