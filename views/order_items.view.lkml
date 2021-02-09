@@ -156,7 +156,7 @@ view: order_items {
 
   measure: total_sales_california {
     type: sum
-    label: "california"
+    label: "California"
     value_format_name: usd_0
     sql: ${sale_price} ;;
     filters: {
@@ -178,6 +178,7 @@ view: order_items {
 
   measure: total_sales_New_York {
     type: sum
+    label: "New York"
     value_format_name: usd_0
     sql: ${sale_price} ;;
     filters: {
@@ -198,6 +199,7 @@ view: order_items {
 
   measure: total_sales_Florida {
     type: sum
+    label: "Florida"
     value_format_name: usd_0
     sql: ${sale_price} ;;
     filters: {
@@ -208,6 +210,7 @@ view: order_items {
 
   measure: total_sales_Ohio {
     type: sum
+    label: "Ohio"
     value_format_name: usd_0
     sql: ${sale_price} ;;
     filters: {
@@ -218,6 +221,7 @@ view: order_items {
 
   measure: total_sales_Arizona {
     type: sum
+    label: "Arizona"
     value_format_name: usd_0
     sql: ${sale_price} ;;
     filters: {
