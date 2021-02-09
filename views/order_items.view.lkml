@@ -150,13 +150,14 @@ view: order_items {
 
   measure: average_spend_per_user {
     type: number
-    value_format_name: usd
+    value_format_name: usd_0
     sql: 1.0 * ${total_sales} / NULLIF(${users.count},0) ;;
   }
 
   measure: total_sales_california {
     type: sum
-    value_format_name: usd
+    label: "california"
+    value_format_name: usd_0
     sql: ${sale_price} ;;
     filters: {
       field: users.state
@@ -166,7 +167,8 @@ view: order_items {
 
   measure: total_sales_Texas {
     type: sum
-    value_format_name: usd
+    label: "Texas"
+    value_format_name: usd_0
     sql: ${sale_price} ;;
     filters: {
       field: users.state
@@ -176,7 +178,7 @@ view: order_items {
 
   measure: total_sales_New_York {
     type: sum
-    value_format_name: usd
+    value_format_name: usd_0
     sql: ${sale_price} ;;
     filters: {
       field: users.state
@@ -186,7 +188,7 @@ view: order_items {
 
   measure: total_sales_Illinois {
     type: sum
-    value_format_name: usd
+    value_format_name: usd_0
     sql: ${sale_price} ;;
     filters: {
       field: users.state
@@ -196,7 +198,7 @@ view: order_items {
 
   measure: total_sales_Florida {
     type: sum
-    value_format_name: usd
+    value_format_name: usd_0
     sql: ${sale_price} ;;
     filters: {
       field: users.state
@@ -206,7 +208,7 @@ view: order_items {
 
   measure: total_sales_Ohio {
     type: sum
-    value_format_name: usd
+    value_format_name: usd_0
     sql: ${sale_price} ;;
     filters: {
       field: users.state
@@ -216,7 +218,7 @@ view: order_items {
 
   measure: total_sales_Arizona {
     type: sum
-    value_format_name: usd
+    value_format_name: usd_0
     sql: ${sale_price} ;;
     filters: {
       field: users.state
