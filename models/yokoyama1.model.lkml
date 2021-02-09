@@ -71,8 +71,8 @@ explore: order_items {
   }
 
   # ----- exercise -----
-  sql_always_where: ${order_items.returned_date} IS NULL ;;
-  sql_always_having: ${order_items.total_sales} > 200 ;;
+  # sql_always_where: ${order_items.returned_date} IS NULL ;;
+  # sql_always_having: ${order_items.total_sales} > 200 ;;
   # sql_always_where: ${order_items.status} = 'complete' ;;
   # sql_always_having: ${order_items.count} > 5000 ;;
   conditionally_filter: {
