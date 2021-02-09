@@ -150,6 +150,7 @@ view: order_items {
 
   measure: average_spend_per_user {
     type: number
+    label: "平均注文金額"
     value_format_name: usd_0
     sql: 1.0 * ${total_sales} / NULLIF(${users.count},0) ;;
   }
@@ -189,6 +190,7 @@ view: order_items {
 
   measure: total_sales_Illinois {
     type: sum
+    label: "Illinois"
     value_format_name: usd_0
     sql: ${sale_price} ;;
     filters: {
