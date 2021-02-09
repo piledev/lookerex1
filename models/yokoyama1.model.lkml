@@ -75,14 +75,14 @@ explore: order_items {
   # sql_always_having: ${order_items.total_sales} > 200 ;;
   # sql_always_where: ${order_items.status} = 'complete' ;;
   # sql_always_having: ${order_items.count} > 5000 ;;
-  conditionally_filter: {
-      filters: {
-        field: users.created_date
-        value: "last 90 days"
-      }
-      unless: [users.id, users.state]
-  }
-  persist_with: order_items
+  # conditionally_filter: {
+  #     filters: {
+  #       field: users.created_date
+  #       value: "last 90 days"
+  #     }
+  #     unless: [users.id, users.state]
+  # }
+  # persist_with: order_items
 }
 
 explore: products {
