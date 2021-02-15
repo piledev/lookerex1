@@ -27,20 +27,32 @@ with a as (
           date(created_at) as created_date
         from order_items
         where created_date between '2020-09-01' and '2020-09-30'
+        ),
+
+        d as (
+          select
+            created_date,
+            state,
+            order_count
+          from a
+          where order_count > 5
         )
 
-        select
-          a.created_date,
-          a.state,
-          a.order_count
+        select distinct
+          b.created_date,
+          b.order_count,
+          d.state,
+          d.order_count as order_count_over5
         from c
         left join a
           on a.created_date = c.created_date
         inner join b
           on b.created_date = a.created_date
           and b.order_count = a.order_count
-        order by created_date,state
-
+        left join d
+          on d.created_date = a.created_date
+          and d.state = a.state
+        order by 1,2
        ;;
   }
 

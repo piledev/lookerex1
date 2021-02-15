@@ -71,21 +71,6 @@ explore: order_items {
     relationship: many_to_one
   }
 
-  join: order_facts_distinct {
-    from: order_facts
-    type: left_outer
-    sql_on: ${order_items.created_date} = ${order_facts_distinct.created_date} ;;
-    relationship: many_to_many
-  }
-
-  join: order_facts {
-    from: order_facts
-    type: left_outer
-    sql_on: ${order_items.created_date} = ${order_facts.created_date} ;;
-    sql_where: ${order_facts.order_count} >= 5 ;;
-    relationship: many_to_many
-  }
-
   # ----- exercise -----
   # sql_always_where: ${order_items.returned_date} IS NULL ;;
   # sql_always_having: ${order_items.total_sales} > 200 ;;
@@ -126,13 +111,4 @@ explore: users {
 }
 
 explore: order_facts {
-
-  join: order_facts_over5 {
-    from: order_facts
-    type: left_outer
-    sql_on: ${order_facts_over5.created_date} = ${order_facts.created_date}
-            and ${order_facts_over5.state} = ${order_facts.state};;
-    sql_where: ${order_facts_over5.order_count} > 5 ;;
-    relationship: many_to_one
-  }
 }
