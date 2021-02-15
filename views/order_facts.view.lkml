@@ -1,7 +1,7 @@
 view: order_facts{
   derived_table: {
     sql:
-        with a as (
+with a as (
         select
           date(a.created_at) as created_date,
           b.state,
@@ -20,17 +20,26 @@ view: order_facts{
           max(order_count) as order_count
         from a
         group by created_date
+        ),
+
+        c as (
+        select distinct
+          date(created_at) as created_date
+        from order_items
+        where created_date between '2020-09-01' and '2020-09-30'
         )
 
         select
           a.created_date,
           a.state,
           a.order_count
-        from a
+        from c
+        left join a
+          on a.created_date = c.created_date
         inner join b
-        on a.created_date = b.created_date
-        and a.order_count = b.order_count
-        order by created_date
+          on b.created_date = a.created_date
+          and b.order_count = a.order_count
+        order by created_date,state
 
        ;;
   }
