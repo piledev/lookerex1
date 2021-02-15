@@ -82,6 +82,7 @@ explore: order_items {
     from: order_facts
     type: left_outer
     sql_on: ${order_items.created_date} = ${order_facts.created_date} ;;
+    sql_where: ${order_facts.order_count} >= 5 ;;
     relationship: many_to_many
   }
 
