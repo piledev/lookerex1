@@ -76,6 +76,11 @@ with a as (
     sql: ${TABLE}."ORDER_COUNT" ;;
   }
 
+  dimension: order_count_over5 {
+    type: number
+    sql: ${TABLE}."ORDER_COUNT_OVER5" ;;
+  }
+
   measure: max_order_count {
     type: max
     sql: ${order_count} ;;
