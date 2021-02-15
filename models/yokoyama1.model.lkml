@@ -71,6 +71,20 @@ explore: order_items {
     relationship: many_to_one
   }
 
+  join: order_facts_distinct {
+    from: order_facts
+    type: left_outer
+    sql_on: ${order_items.created_date} = ${order_facts_distinct.created_date} ;;
+    relationship: many_to_many
+  }
+
+  join: order_facts {
+    from: order_facts
+    type: left_outer
+    sql_on: ${order_items.created_date} = ${order_facts.created_date} ;;
+    relationship: many_to_many
+  }
+
   # ----- exercise -----
   # sql_always_where: ${order_items.returned_date} IS NULL ;;
   # sql_always_having: ${order_items.total_sales} > 200 ;;
