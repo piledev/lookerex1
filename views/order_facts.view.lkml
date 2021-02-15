@@ -1,4 +1,4 @@
-view: sql_runner_query {
+view: order_facts{
   derived_table: {
     sql: select
         date(a.created_at) as created_date,

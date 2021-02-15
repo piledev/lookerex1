@@ -110,5 +110,5 @@ explore: users {
     persist_with: default
 }
 
-explore: sql_runner_query {
+explore: order_facts {
 }
