@@ -126,11 +126,13 @@ explore: users {
 }
 
 explore: order_facts {
-  join: order_facts_1 {
+
+  join: order_facts_over5 {
     from: order_facts
     type: left_outer
-    sql_on: ${order_facts_1.created_date} = ${order_facts.created_date} ;;
-    sql_where: ${order_facts.order_count} >= 5 ;;
-    relationship: many_to_many
+    sql_on: ${order_facts_over5.created_date} = ${order_facts.created_date}
+            and ${order_facts_over5.state} = ${order_facts.state};;
+    sql_where: ${order_facts_over5.order_count} > 5 ;;
+    relationship: many_to_one
   }
 }
