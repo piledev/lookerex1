@@ -83,7 +83,27 @@ with a as (
 
   measure: max_order_count {
     type: max
+    sql: ${order_count} ;;
+  }
+
+  measure: max_order_count_over5_Alabama {
+    type: max
+    label: "Alabama"
     sql: ${order_count_over5} ;;
+    filters: {
+      field: state
+      value: "Alabama"
+    }
+  }
+
+  measure: max_order_count_over5_Arizona {
+    type: max
+    label: "Arizona"
+    sql: ${order_count_over5} ;;
+    filters: {
+      field: state
+      value: "Arizona"
+    }
   }
 
   set: detail {

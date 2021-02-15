@@ -155,7 +155,7 @@ view: order_items {
     sql: 1.0 * ${total_sales} / NULLIF(${users.count},0) ;;
   }
 
-  measure: total_sales_california {
+  measure: total_sales_California {
     type: sum
     label: "California"
     value_format_name: usd_0
