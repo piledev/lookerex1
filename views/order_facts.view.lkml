@@ -83,10 +83,10 @@ with a as (
 
   measure: max_order_count {
     type: max
-    sql: ${order_count} ;;
+    sql: ${order_count_over5} ;;
   }
 
   set: detail {
-    fields: [created_date, state, order_count]
+    fields: [created_date, state, order_count, order_count_over5]
   }
 }
