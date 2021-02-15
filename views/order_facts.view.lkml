@@ -9,8 +9,7 @@ with a as (
         from order_items a
         inner join users b
           on a.user_id = b.id
-        where created_date between '2020-09-01' and '2020-09-30'
-          and b.state like 'A%'
+        where b.state like 'A%'
         group by 1,2
         ),
 
@@ -26,7 +25,6 @@ with a as (
         select distinct
           date(created_at) as created_date
         from order_items
-        where created_date between '2020-09-01' and '2020-09-30'
         ),
 
         d as (
